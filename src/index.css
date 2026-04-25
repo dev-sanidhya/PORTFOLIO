@@ -210,3 +210,53 @@
 .animated-underline:hover::after {
   width: 100%;
 }
+
+/* Scanlines - subtle CRT atmosphere */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.013) 2px,
+    rgba(0, 0, 0, 0.013) 3px
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* HUD bracket corners - for CTA buttons and key cards */
+.hud-btn {
+  position: relative;
+}
+.hud-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid rgba(139, 92, 246, 0.65);
+  border-left: 1px solid rgba(139, 92, 246, 0.65);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.hud-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.65);
+  border-right: 1px solid rgba(6, 182, 212, 0.65);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.hud-btn:hover::before {
+  border-color: rgba(139, 92, 246, 1);
+}
+.hud-btn:hover::after {
+  border-color: rgba(6, 182, 212, 1);
+}

@@ -49,7 +49,7 @@ export default function Experience() {
                 >
                   {/* Timeline dot */}
                   <div className={`relative z-10 shrink-0 flex items-center justify-center md:absolute md:left-1/2 md:-translate-x-1/2 md:top-6`}>
-                    <div className={`w-4 h-4 rounded-full bg-[#030712] border-2 ${dot} ml-2 md:ml-0`} />
+                    <div className={`w-3.5 h-3.5 bg-[#030712] border-2 ${dot} ml-2 md:ml-0`} />
                   </div>
 
                   {/* Card — takes up ~half width on desktop */}
@@ -66,7 +66,7 @@ export default function Experience() {
                           <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${c}`}>
                             {exp.tag}
                           </span>
-                          <span className="text-xs text-slate-500 font-mono whitespace-nowrap">{exp.duration}</span>
+                          <span className="text-[10px] text-slate-600 font-mono whitespace-nowrap tracking-wider">{exp.duration}</span>
                         </div>
                       </div>
 

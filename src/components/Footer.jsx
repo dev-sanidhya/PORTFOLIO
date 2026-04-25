@@ -7,9 +7,14 @@ export default function Footer() {
           <span className="gradient-text font-semibold">Sanidhya Shishodia</span>
           {' '}· Built with React + Vite + TailwindCSS
         </p>
-        <p className="font-mono text-xs">
-          New Delhi, India · Available for hire
-        </p>
+        <div className="flex flex-col items-center md:items-end gap-1">
+          <p className="font-mono text-xs">
+            New Delhi, India · Available for hire
+          </p>
+          <p className="font-mono text-[9px] text-slate-700 tracking-[0.22em] uppercase select-none">
+            SYS.STATUS: ONLINE
+          </p>
+        </div>
       </div>
     </footer>
   );

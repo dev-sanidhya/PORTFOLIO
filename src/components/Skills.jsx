@@ -65,10 +65,10 @@ export default function Skills() {
                 {/* Category header */}
                 <div className="flex items-center gap-3 mb-5">
                   <div className={`w-2.5 h-2.5 rounded-full ${c.dot} shadow-sm`} />
-                  <h3 className={`font-semibold text-sm tracking-wide uppercase ${c.title}`}>
+                  <h3 className={`font-mono text-[10px] font-semibold tracking-[0.18em] uppercase ${c.title}`}>
                     {group.category}
                   </h3>
-                  <span className="ml-auto text-xs text-slate-600 font-mono">{group.items.length} skills</span>
+                  <span className="ml-auto font-mono text-[10px] text-slate-600">[{String(group.items.length).padStart(2, '0')}]</span>
                 </div>
 
                 {/* Pills */}

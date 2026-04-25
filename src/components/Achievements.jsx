@@ -7,19 +7,19 @@ const TYPE_STYLES = {
     border: 'border-amber-500/25 hover:border-amber-500/50',
     glow: 'hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]',
     badge: 'bg-amber-500/10 text-amber-400 border-amber-500/25',
-    label: 'Winner',
+    label: '[WIN]',
   },
   finalist: {
     border: 'border-violet-500/25 hover:border-violet-500/50',
     glow: 'hover:shadow-[0_0_40px_rgba(139,92,246,0.1)]',
     badge: 'bg-violet-500/10 text-violet-400 border-violet-500/25',
-    label: 'Finalist',
+    label: '[FIN]',
   },
   competition: {
     border: 'border-cyan-500/25 hover:border-cyan-500/50',
     glow: 'hover:shadow-[0_0_40px_rgba(6,182,212,0.1)]',
     badge: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/25',
-    label: 'Competition',
+    label: '[CMP]',
   },
 };
 
@@ -79,7 +79,7 @@ export default function Achievements() {
                   <div className="min-w-0">
                     <h3 className="font-bold text-white text-sm leading-snug mb-1.5">{ach.title}</h3>
                     <p className="text-slate-500 text-xs leading-relaxed">{ach.detail}</p>
-                    <span className={`inline-block mt-3 text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full border ${style.badge}`}>
+                    <span className={`inline-block mt-3 font-mono text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-sm border ${style.badge}`}>
                       {style.label}
                     </span>
                   </div>

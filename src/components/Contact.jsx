@@ -78,8 +78,14 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-card rounded-3xl p-8 md:p-10 border border-white/[0.07] gradient-border"
+          className="relative glass-card rounded-3xl p-8 md:p-10 border border-white/[0.07] gradient-border"
         >
+          {/* HUD corner brackets */}
+          <span className="absolute top-3 left-3 w-3 h-3 border-t border-l border-violet-500/35 pointer-events-none" />
+          <span className="absolute top-3 right-3 w-3 h-3 border-t border-r border-violet-500/35 pointer-events-none" />
+          <span className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-cyan-500/35 pointer-events-none" />
+          <span className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-cyan-500/35 pointer-events-none" />
+
           {/* Headline */}
           <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-black text-white mb-3">

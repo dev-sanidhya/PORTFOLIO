@@ -45,6 +45,17 @@ export default function Hero() {
         animate="show"
         className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24"
       >
+        {/* System status line */}
+        <motion.div variants={itemVariants} className="mb-5">
+          <p className="font-mono text-[10px] tracking-[0.28em] text-slate-700 uppercase select-none">
+            SANIDHYA.SYS
+            <span className="text-violet-800/60 mx-2">//</span>
+            ONLINE
+            <span className="text-violet-800/60 mx-2">//</span>
+            NEW DELHI, IND
+          </p>
+        </motion.div>
+
         {/* Status badge */}
         <motion.div variants={itemVariants} className="mb-8">
           <span className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-emerald-500/25 bg-emerald-500/8 text-emerald-400 text-sm font-medium">
@@ -64,7 +75,7 @@ export default function Hero() {
         {/* Typewriter role */}
         <motion.div variants={itemVariants} className="mt-6 mb-5 h-9 flex items-center justify-center">
           <span className="text-lg md:text-2xl font-mono text-slate-400">
-            <span className="text-violet-400">{'> '}</span>
+            <span className="text-slate-600 font-mono text-sm md:text-xl">{'sys@sanidhya:~$ '}</span>
             <TypeAnimation
               sequence={[
                 'Agentic AI Builder', 2800,
@@ -98,7 +109,7 @@ export default function Hero() {
         <motion.div variants={itemVariants} className="flex flex-wrap gap-4 justify-center mb-12">
           <a
             href="#projects"
-            className="btn-shimmer px-8 py-3.5 rounded-full text-white font-semibold text-sm"
+            className="hud-btn btn-shimmer px-8 py-3.5 rounded-full text-white font-semibold text-sm"
           >
             View Projects
           </a>

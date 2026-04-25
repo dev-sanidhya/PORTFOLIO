@@ -116,8 +116,9 @@ export default function About() {
                   key={label}
                   className={`rounded-xl border p-4 ${STAT_COLORS[color]} transition-all duration-300 hover:-translate-y-1`}
                 >
-                  <div className="text-3xl font-black mb-1">{value}</div>
-                  <div className="text-xs text-slate-400">{label}</div>
+                  <div className="font-mono text-2xl font-bold mb-1 tabular-nums tracking-tight">{value}</div>
+                  <div className="font-mono text-[10px] text-slate-500 tracking-wider uppercase leading-snug">{label}</div>
+                  <div className="w-full h-px mt-2.5 bg-gradient-to-r from-transparent via-current to-transparent opacity-15" />
                 </div>
               ))}
             </div>

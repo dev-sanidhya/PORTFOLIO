@@ -21,6 +21,9 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#030712] text-white overflow-x-hidden noise">
+      {/* Scanlines overlay */}
+      <div className="scanlines" />
+
       {/* Cursor glow follower */}
       <div
         className="pointer-events-none fixed w-[500px] h-[500px] rounded-full opacity-[0.025] blur-[80px] z-50 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"

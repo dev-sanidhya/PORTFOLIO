@@ -13,11 +13,22 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [time, setTime] = useState('');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const tick = () => {
+      const now = new Date();
+      setTime(now.toLocaleTimeString('en-US', { hour12: false }));
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
   }, []);
 
   return (
@@ -52,6 +63,14 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
+
+        {/* System clock */}
+        {time && (
+          <span className="hidden lg:flex items-center gap-2 font-mono text-[10px] text-slate-700 tracking-widest select-none">
+            <span className="w-1 h-1 rounded-full bg-emerald-500/50 animate-pulse-dot" />
+            {time}
+          </span>
+        )}
 
         {/* Hire me CTA */}
         <a
