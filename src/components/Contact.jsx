@@ -86,7 +86,7 @@ export default function Contact() {
               Say <span className="gradient-text">Hello!</span>
             </h3>
             <p className="text-slate-400 text-sm">
-              Whether it's a job opportunity, a side project, or just a chat about AI — I'm all ears.
+              Whether it's a job opportunity, a side project, or just a chat about AI, I'm all ears.
             </p>
           </div>
 

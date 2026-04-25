@@ -67,11 +67,12 @@ export default function Hero() {
             <span className="text-violet-400">{'> '}</span>
             <TypeAnimation
               sequence={[
-                'AI / ML Engineer', 2200,
-                'Full Stack Developer', 2200,
-                'ML Researcher', 2200,
-                'Hackathon Champion', 2200,
-                'Open Source Enthusiast', 2200,
+                'Agentic AI Builder', 2800,
+                'Multi-Agent Systems Engineer', 2500,
+                'LLM Pipeline Architect', 2400,
+                'Claude Agent SDK Developer', 2400,
+                'Full Stack Developer', 1800,
+                'Hackathon Champion ×4', 2200,
               ]}
               wrapper="span"
               speed={55}
@@ -87,7 +88,8 @@ export default function Hero() {
           variants={itemVariants}
           className="text-slate-400 max-w-xl mx-auto mb-10 text-base md:text-lg leading-relaxed"
         >
-          Building intelligent systems at the intersection of AI and the web.
+          I build autonomous AI agents that think, decide, and act independently.
+          20+ hackathons shipped. 4 wins. Production systems in the wild.
           <br />
           <span className="text-slate-500 text-sm">B.Tech AI/ML @ VIPS · New Delhi · 2024–2028</span>
         </motion.p>

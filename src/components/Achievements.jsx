@@ -47,8 +47,8 @@ export default function Achievements() {
         >
           <div className="grid grid-cols-3 divide-x divide-white/[0.07] text-center">
             {[
-              { value: '3', label: 'Hackathons Won' },
-              { value: '5+', label: 'National Finals' },
+              { value: '4', label: 'Hackathons Won' },
+              { value: '20+', label: 'Hackathons Shipped' },
               { value: '3,000+', label: 'Competitors Beaten' },
             ].map(({ value, label }) => (
               <div key={label} className="px-4 py-2">

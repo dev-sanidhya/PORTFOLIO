@@ -47,8 +47,15 @@ function ProjectCard({ project, index }) {
           {/* Project name + external links */}
           <div className="flex items-start justify-between mb-3">
             <div>
-              <h3 className="text-2xl font-black gradient-text">{project.name}</h3>
-              <p className="text-slate-400 text-sm mt-1">{project.tagline}</p>
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="text-2xl font-black gradient-text">{project.name}</h3>
+                {project.badge && (
+                  <span className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-white/[0.07] border border-white/10 text-slate-400">
+                    {project.badge}
+                  </span>
+                )}
+              </div>
+              <p className="text-slate-400 text-sm">{project.tagline}</p>
             </div>
             <div className="flex items-center gap-2 ml-4 shrink-0">
               {project.github && (
@@ -147,7 +154,7 @@ export default function Projects() {
         <SectionHeading
           tag="04 · Projects"
           title="What I've Built"
-          subtitle="A selection of AI-powered full-stack systems — from real-time OSINT intelligence to multi-agent financial analysis."
+          subtitle="AI-powered full-stack systems: autonomous agents, multi-agent war rooms, real-time OSINT, and open-source agent infrastructure."
         />
 
         <div className="grid md:grid-cols-2 gap-6">

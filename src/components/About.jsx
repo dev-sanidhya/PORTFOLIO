@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import SectionHeading from './SectionHeading';
 
 const STATS = [
-  { value: '3', label: 'Hackathons Won', color: 'violet' },
-  { value: '5+', label: 'National Finals', color: 'cyan' },
-  { value: '2', label: 'Research Projects', color: 'emerald' },
-  { value: '10+', label: 'Technologies', color: 'amber' },
+  { value: '20+', label: 'Hackathons Shipped', color: 'violet' },
+  { value: '4', label: 'National Wins', color: 'cyan' },
+  { value: '10+', label: 'AI Agents Built', color: 'emerald' },
+  { value: '3', label: 'Prod Systems Live', color: 'amber' },
 ];
 
 const STAT_COLORS = {
@@ -17,15 +17,17 @@ const STAT_COLORS = {
 
 const terminalLines = [
   { prompt: true, text: 'whoami' },
-  { prompt: false, text: 'Sanidhya Shishodia — AI/ML & Full Stack' },
-  { prompt: true, text: 'cat education.txt' },
+  { prompt: false, text: 'Agentic AI Builder. Ships fast. Builds real.' },
+  { prompt: true, text: 'cat identity.txt' },
   { prompt: false, text: 'B.Tech AI/ML @ VIPS (2024–2028)' },
   { prompt: false, text: 'New Delhi, India' },
-  { prompt: true, text: 'cat interests.txt' },
-  { prompt: false, text: '> Artificial Intelligence & ML' },
-  { prompt: false, text: '> Full Stack Web Development' },
-  { prompt: false, text: '> Competitive Programming' },
-  { prompt: false, text: '> Open Source & Research' },
+  { prompt: true, text: 'cat philosophy.txt' },
+  { prompt: false, text: '> Autonomous agents > manual pipelines' },
+  { prompt: false, text: '> Claude SDK + MCP = real agency' },
+  { prompt: false, text: '> Ship fast. Learn faster.' },
+  { prompt: false, text: '> AI-enabled in everything I do.' },
+  { prompt: true, text: 'ls hackathons/ | wc -l' },
+  { prompt: false, text: '20+ projects shipped, 4 wins' },
   { prompt: true, text: '' },
 ];
 
@@ -57,7 +59,7 @@ export default function About() {
                 <div className="w-3 h-3 rounded-full bg-red-500/70" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
                 <div className="w-3 h-3 rounded-full bg-emerald-500/70" />
-                <span className="ml-3 text-xs font-mono text-slate-500">~/sanidhya — bash</span>
+                <span className="ml-3 text-xs font-mono text-slate-500">~/sanidhya ~ bash</span>
               </div>
               {/* Terminal body */}
               <div className="p-5 font-mono text-sm space-y-1.5">
@@ -92,18 +94,18 @@ export default function About() {
           >
             <div className="space-y-4 text-slate-400 leading-relaxed">
               <p>
-                I'm <span className="text-white font-semibold">Sanidhya Shishodia</span>, a first-year B.Tech student in
-                Artificial Intelligence & Machine Learning at VIPS, New Delhi. I build full-stack
-                AI systems that span from NLP pipelines and financial intelligence platforms to
-                real-time OSINT dashboards.
+                I'm <span className="text-white font-semibold">Sanidhya Shishodia</span>. I build autonomous AI agents
+                that make real decisions, move real money, and operate without hand-holding. I've shipped
+                20+ projects across 20+ hackathons: a DeFi agent trading live on Base, an OSINT platform
+                watching global events in real time, and a multi-agent financial war room deployed in production.
               </p>
               <p>
-                Currently interning as a <span className="text-violet-300 font-medium">Full Stack Developer at Lit Amor</span> and
-                co-authoring a research paper on multi-source sentiment analysis for stock markets.
-                I've won and placed in multiple national hackathons competing against 1,500+ teams.
+                Early <span className="text-violet-300 font-medium">Claude Agent SDK + MCP adopter</span>: not just
+                using LLMs as chatbots, but wiring them as decision-making cores inside production systems.
+                Currently interning at Lit Amor and co-authoring research on market sentiment AI.
               </p>
               <p>
-                My philosophy: <span className="text-cyan-300 italic">"Ship fast, learn faster, build smarter."</span>
+                My rule: <span className="text-cyan-300 italic">"If it can be autonomous, make it autonomous."</span>
               </p>
             </div>
 
