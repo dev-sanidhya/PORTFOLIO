@@ -43,13 +43,13 @@ export default function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="relative z-10 max-w-5xl mx-auto px-6 text-center"
+        className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24"
       >
         {/* Status badge */}
         <motion.div variants={itemVariants} className="mb-8">
           <span className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-emerald-500/25 bg-emerald-500/8 text-emerald-400 text-sm font-medium">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-dot" />
-            Open to internships &amp; collaborations
+            Open to Freelancing · Internships · Full-time Roles
           </span>
         </motion.div>
 

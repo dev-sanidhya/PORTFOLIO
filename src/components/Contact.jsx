@@ -69,7 +69,7 @@ export default function Contact() {
         <SectionHeading
           tag="06 · Contact"
           title="Let's Build Together"
-          subtitle="Open to internships, collaborations, and research opportunities. I'd love to hear from you."
+          subtitle="Open to freelance projects, internships, and full-time roles. I'd love to hear from you."
         />
 
         {/* Main contact card */}

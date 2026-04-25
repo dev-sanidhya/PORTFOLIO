@@ -59,7 +59,7 @@ export default function Navbar() {
           className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm border border-violet-500/30 bg-violet-500/10 text-violet-300 hover:bg-violet-500/20 hover:border-violet-500/50 hover:text-violet-200 transition-all duration-200"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-dot" />
-          Hire Me
+          Work With Me
         </a>
 
         {/* Mobile hamburger */}
@@ -101,7 +101,7 @@ export default function Navbar() {
                 href="mailto:shishodiasanidhya@gmail.com"
                 className="mt-2 px-4 py-3 rounded-full text-center text-sm border border-violet-500/30 bg-violet-500/10 text-violet-300"
               >
-                Hire Me
+                Work With Me
               </a>
             </div>
           </motion.div>
