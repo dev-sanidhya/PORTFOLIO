@@ -5,11 +5,13 @@ import SectionHeading from './SectionHeading';
 const TAG_COLORS = {
   violet: 'bg-violet-500/10 text-violet-400 border-violet-500/25',
   cyan: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/25',
+  amber: 'bg-amber-500/10 text-amber-400 border-amber-500/25',
 };
 
 const DOT_COLORS = {
   violet: 'border-violet-500 shadow-[0_0_16px_rgba(139,92,246,0.5)]',
   cyan: 'border-cyan-500 shadow-[0_0_16px_rgba(6,182,212,0.5)]',
+  amber: 'border-amber-500 shadow-[0_0_16px_rgba(245,158,11,0.45)]',
 };
 
 export default function Experience() {

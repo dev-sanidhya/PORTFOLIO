@@ -23,6 +23,18 @@ export const skills = [
 
 export const experience = [
   {
+    role: 'GSoC Mentor',
+    company: 'OWASP',
+    location: 'Remote',
+    duration: 'March 2026 – Present',
+    tag: 'Open Source',
+    tagColor: 'amber',
+    bullets: [
+      'Selected as a GSoC 2026 mentor for OWASP, evaluating contributor proposals, reviewing code, and tracking milestones',
+      'Guiding contributors on open-source security tooling development across the full Google Summer of Code program cycle',
+    ],
+  },
+  {
     role: 'Full Stack Intern',
     company: 'Lit Amor Pvt. Ltd.',
     location: 'Remote, Jaipur, India',
