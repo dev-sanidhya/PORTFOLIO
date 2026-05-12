@@ -7,12 +7,12 @@ export const skills = [
   {
     category: 'ML / NLP / Vision',
     color: 'cyan',
-    items: ['PyTorch', 'Scikit-learn', 'spaCy', 'VADER', 'DeBERTa v3', 'CSRNet', 'Pandas', 'NumPy', 'HuggingFace'],
+    items: ['PyTorch', 'Scikit-learn', 'spaCy', 'VADER', 'DeBERTa v3', 'CSRNet', 'Sentence-Transformers', 'Pandas', 'NumPy', 'HuggingFace'],
   },
   {
     category: 'Full Stack',
     color: 'emerald',
-    items: ['React', 'Next.js 15', 'FastAPI', 'TypeScript', 'Vite', 'TailwindCSS', 'React Native', 'Node.js', 'Express'],
+    items: ['React', 'Next.js 15/16', 'FastAPI', 'TypeScript', 'Vite', 'TailwindCSS', 'React Native', 'Node.js', 'Express'],
   },
   {
     category: 'Infra & Web3',
