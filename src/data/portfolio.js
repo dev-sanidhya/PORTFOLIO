@@ -160,6 +160,22 @@ export const projects = [
     badge: 'RAG / AI',
   },
   {
+    name: 'Scripta',
+    tagline: 'Machine Text to Undetectable Human Handwriting',
+    tech: ['Python', 'PyTorch', 'CUDA', 'VATr++', 'IAM Dataset', 'Perlin Noise', 'FastAPI'],
+    description: [
+      'Converts any PDF, DOCX, or TXT into handwriting images indistinguishable from genuine human writing via two backends',
+      'Font backend uses Caveat + a custom WriterState model (~65% believable); neural backend uses VATr++ trained on the IAM handwriting dataset (~85%+ believable)',
+      'Core differentiator: WriterState - a fatigue accumulator, attention curve, rush factor, and Perlin noise baseline drift that simulate how real humans write under cognitive load',
+      'Runs on CUDA (RTX 4050) with PyTorch 2.4.1+cu124; neural backend processes full pages at near-realtime on local GPU',
+    ],
+    github: 'https://github.com/dev-sanidhya',
+    demo: null,
+    gradient: 'from-slate-600 via-gray-600 to-zinc-500',
+    accentColor: 'slate',
+    badge: 'ML / NLP',
+  },
+  {
     name: 'NOESIS',
     tagline: 'Real-time Global Civil Unrest Intelligence',
     tech: ['FastAPI', 'React', 'spaCy', 'NLP', 'Google Places API', 'Telegram API', 'ML'],
