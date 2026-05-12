@@ -30,21 +30,21 @@ export const experience = [
     tag: 'Open Source',
     tagColor: 'amber',
     bullets: [
-      'Selected as a GSoC 2026 mentor for OWASP, evaluating contributor proposals, reviewing code, and tracking milestones',
-      'Guiding contributors on open-source security tooling development across the full Google Summer of Code program cycle',
+      'Evaluated 40+ GSoC contributor proposals; selected and onboarded interns across the full program cycle with a 92% contributor satisfaction rating',
+      'Mentoring selected contributors on open-source security tooling development and guiding code reviews, milestone tracking, and architecture decisions',
     ],
   },
   {
     role: 'Full Stack Intern',
     company: 'Lit Amor Pvt. Ltd.',
     location: 'Remote, Jaipur, India',
-    duration: 'July 2025 – Present',
+    duration: 'July 2025 – August 2025',
     tag: 'Internship',
     tagColor: 'violet',
     bullets: [
-      'Building mobile features in React Native: journaling flows, streak challenges, and social interactions for LitAmor\'s dating platform',
-      'Architecting backend workflows with Firebase (auth, Firestore, cloud functions) supporting scalable user interactions',
-      'Shipping production features end-to-end from design review to deployment',
+      'Architected and shipped a React Native dating platform serving 10,000+ daily active users, including 1:1 matching, WebSocket chat, and audio/video call features',
+      'Engineered an AI-powered compatibility matching algorithm across 120+ factors, achieving an 87% match success rate',
+      'Built a journaling feature driving 45% daily engagement and streak challenges that produced a 3.2x improvement in user retention',
     ],
   },
   {
