@@ -171,8 +171,8 @@ export const achievements = [
     type: 'winner',
   },
   {
-    title: 'Finalist, 5 National Hackathons',
-    detail: 'Consistently recognized for innovation and execution',
+    title: 'Finalist, 7 National Hackathons',
+    detail: 'Consistently recognized for innovation and execution across national-level competitions',
     icon: '⚡',
     type: 'finalist',
   },
