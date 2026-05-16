@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
+import { EffectComposer, Bloom, ChromaticAberration, Vignette } from '@react-three/postprocessing';
+import { BlendFunction } from 'postprocessing';
 import * as THREE from 'three';
 import {
   planeVertex,
@@ -195,16 +196,20 @@ export default function WebGLScene() {
       >
         <SceneUpdater uniforms={uniforms} inputs={inputs} />
         <ShaderBackground uniforms={uniforms} />
-        <ParticleField uniforms={uniforms} count={window.innerWidth < 768 ? 3000 : 7000} />
+        <ParticleField uniforms={uniforms} count={window.innerWidth < 768 ? 4000 : 9000} />
 
         <EffectComposer multisampling={0} disableNormalPass>
           <Bloom
-            intensity={0.5}
-            luminanceThreshold={0.36}
+            intensity={0.55}
+            luminanceThreshold={0.32}
             luminanceSmoothing={0.4}
             mipmapBlur
           />
-          <Vignette eskil={false} offset={0.18} darkness={0.55} />
+          <ChromaticAberration
+            blendFunction={BlendFunction.NORMAL}
+            offset={[0.0006, 0.0009]}
+          />
+          <Vignette eskil={false} offset={0.15} darkness={0.55} />
         </EffectComposer>
       </Canvas>
     </div>
