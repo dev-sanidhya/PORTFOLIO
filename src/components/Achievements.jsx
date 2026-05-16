@@ -2,91 +2,82 @@ import { motion } from 'framer-motion';
 import { achievements } from '../data/portfolio';
 import SectionHeading from './SectionHeading';
 
-const TYPE_STYLES = {
-  winner: {
-    border: 'border-amber-500/25 hover:border-amber-500/50',
-    glow: 'hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]',
-    badge: 'bg-amber-500/10 text-amber-400 border-amber-500/25',
-    label: '[WIN]',
-  },
-  finalist: {
-    border: 'border-violet-500/25 hover:border-violet-500/50',
-    glow: 'hover:shadow-[0_0_40px_rgba(139,92,246,0.1)]',
-    badge: 'bg-violet-500/10 text-violet-400 border-violet-500/25',
-    label: '[FIN]',
-  },
-  competition: {
-    border: 'border-cyan-500/25 hover:border-cyan-500/50',
-    glow: 'hover:shadow-[0_0_40px_rgba(6,182,212,0.1)]',
-    badge: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/25',
-    label: '[CMP]',
-  },
+const TYPE_LABEL = {
+  winner: 'WIN',
+  finalist: 'FINALIST',
+  competition: 'ENTRY',
 };
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full opacity-[0.04] blur-[100px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #f59e0b, transparent)' }} />
-
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="achievements" className="py-32 md:py-44 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionHeading
-          tag="05 · Achievements"
-          title="Wins & Recognition"
+          tag="05 · Wins"
+          kicker="05 / Wins"
+          title={
+            <>
+              Trophies on the <span className="italic-serif text-ember">shelf</span>.
+            </>
+          }
           subtitle="Competing against thousands at national hackathons and strategy competitions."
         />
 
-        {/* Stats banner */}
+        {/* Headline stats */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="glass-card rounded-2xl p-6 mb-8 border border-white/[0.07]"
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-3 gap-6 md:gap-10 mb-20 md:mb-28 border-y border-paper/[0.08] py-10 md:py-14"
         >
-          <div className="grid grid-cols-3 divide-x divide-white/[0.07] text-center">
-            {[
-              { value: '4', label: 'Hackathons Won' },
-              { value: '20+', label: 'Hackathons Shipped' },
-              { value: '3,000+', label: 'Competitors Beaten' },
-            ].map(({ value, label }) => (
-              <div key={label} className="px-4 py-2">
-                <div className="text-3xl font-black gradient-text mb-1">{value}</div>
-                <div className="text-xs text-slate-500">{label}</div>
-              </div>
-            ))}
-          </div>
+          {[
+            { value: '04', label: 'Hackathons won' },
+            { value: '20+', label: 'Hackathons shipped' },
+            { value: '3K+', label: 'Competitors beaten' },
+          ].map(({ value, label }) => (
+            <div key={label} className="flex flex-col items-center text-center">
+              <span className="font-display text-6xl md:text-8xl text-paper leading-none tracking-tightest">
+                {value}
+              </span>
+              <span className="label-mono mt-3">{label}</span>
+            </div>
+          ))}
         </motion.div>
 
-        {/* Achievement cards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {achievements.map((ach, i) => {
-            const style = TYPE_STYLES[ach.type];
-            return (
-              <motion.div
-                key={ach.title}
-                initial={{ opacity: 0, y: 30, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className={`group glass-card rounded-2xl p-5 border transition-all duration-300 cursor-default ${style.border} ${style.glow}`}
-              >
-                <div className="flex items-start gap-4">
-                  {/* Icon */}
-                  <div className="text-3xl shrink-0 mt-0.5">{ach.icon}</div>
+        {/* Achievement list */}
+        <div className="space-y-0">
+          {achievements.map((ach, i) => (
+            <motion.div
+              key={ach.title}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative grid grid-cols-12 gap-3 md:gap-6 items-center py-5 md:py-7 border-b border-paper/[0.06] hover:bg-paper/[0.02] transition-colors duration-500 px-2 -mx-2"
+              data-cursor="hover"
+            >
+              <span className="col-span-1 font-mono text-[11px] text-paper-400 tracking-widest">
+                /{String(i + 1).padStart(2, '0')}
+              </span>
 
-                  <div className="min-w-0">
-                    <h3 className="font-bold text-white text-sm leading-snug mb-1.5">{ach.title}</h3>
-                    <p className="text-slate-500 text-xs leading-relaxed">{ach.detail}</p>
-                    <span className={`inline-block mt-3 font-mono text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-sm border ${style.badge}`}>
-                      {style.label}
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+              <span className="col-span-1 text-2xl md:text-3xl">{ach.icon}</span>
+
+              <h3 className="col-span-8 md:col-span-7 font-display text-xl md:text-3xl text-paper leading-tight group-hover:text-ember transition-colors duration-500 tracking-tight">
+                {ach.title}
+              </h3>
+
+              <p className="hidden md:block md:col-span-2 text-sm text-paper-300 leading-snug">
+                {ach.detail}
+              </p>
+
+              <span className="col-span-2 md:col-span-1 text-right">
+                <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-paper-400 group-hover:text-ember transition-colors duration-500">
+                  {TYPE_LABEL[ach.type] || ach.type}
+                </span>
+              </span>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
