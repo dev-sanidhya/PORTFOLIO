@@ -2,136 +2,111 @@ import { motion } from 'framer-motion';
 import SectionHeading from './SectionHeading';
 
 const STATS = [
-  { value: '20+', label: 'Hackathons Shipped', color: 'violet' },
-  { value: '4', label: 'National Wins', color: 'cyan' },
-  { value: '10+', label: 'AI Agents Built', color: 'emerald' },
-  { value: '3', label: 'Prod Systems Live', color: 'amber' },
+  { value: '20+', label: 'Hackathons shipped' },
+  { value: '04', label: 'National wins' },
+  { value: '10+', label: 'AI agents built' },
+  { value: '03', label: 'Prod systems live' },
 ];
 
-const STAT_COLORS = {
-  violet: 'text-violet-400 border-violet-500/20 bg-violet-500/5',
-  cyan: 'text-cyan-400 border-cyan-500/20 bg-cyan-500/5',
-  emerald: 'text-emerald-400 border-emerald-500/20 bg-emerald-500/5',
-  amber: 'text-amber-400 border-amber-500/20 bg-amber-500/5',
-};
-
-const terminalLines = [
-  { prompt: true, text: 'whoami' },
-  { prompt: false, text: 'Agentic AI Builder. Ships fast. Builds real.' },
-  { prompt: true, text: 'cat identity.txt' },
-  { prompt: false, text: 'B.Tech AI/ML @ VIPS (2024–2028)' },
-  { prompt: false, text: 'New Delhi, India' },
-  { prompt: true, text: 'cat philosophy.txt' },
-  { prompt: false, text: '> Autonomous agents > manual pipelines' },
-  { prompt: false, text: '> Claude SDK + MCP = real agency' },
-  { prompt: false, text: '> Ship fast. Learn faster.' },
-  { prompt: false, text: '> AI-enabled in everything I do.' },
-  { prompt: true, text: 'ls hackathons/ | wc -l' },
-  { prompt: false, text: '20+ projects shipped, 4 wins' },
-  { prompt: true, text: '' },
+const PRINCIPLES = [
+  { k: 'If it can be autonomous, make it autonomous.' },
+  { k: 'Ship fast. Learn faster.' },
+  { k: 'Agents over pipelines.' },
+  { k: 'Claude SDK + MCP = real agency.' },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Subtle background orb */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full opacity-[0.04] blur-[100px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #8b5cf6, transparent)' }} />
-
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="py-32 md:py-44 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionHeading
           tag="01 · About"
-          title="Who Am I?"
-          subtitle="A passionate AI/ML engineer who loves turning complex problems into elegant intelligent solutions."
+          kicker="01 / About"
+          title={
+            <>
+              An engineer who builds <span className="italic-serif text-ember">things that act</span>,
+              not things that wait.
+            </>
+          }
         />
 
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          {/* Terminal card */}
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16">
+          {/* Left: long-form */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.65, ease: 'easeOut' }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="md:col-span-7 space-y-7 text-paper-200 text-lg leading-[1.65] md:pl-2"
           >
-            <div className="glass-card rounded-2xl overflow-hidden">
-              {/* Terminal title bar */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-white/[0.02]">
-                <div className="w-3 h-3 rounded-full bg-red-500/70" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                <div className="w-3 h-3 rounded-full bg-emerald-500/70" />
-                <span className="ml-3 text-xs font-mono text-slate-500">~/sanidhya ~ bash</span>
-              </div>
-              {/* Terminal body */}
-              <div className="p-5 font-mono text-sm space-y-1.5">
-                {terminalLines.map((line, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    {line.prompt ? (
-                      <>
-                        <span className="text-violet-400 shrink-0">❯</span>
-                        <span className="text-slate-200">{line.text}</span>
-                      </>
-                    ) : (
-                      <span className="text-slate-400 pl-4">{line.text}</span>
-                    )}
-                  </div>
-                ))}
-                {/* Blinking cursor */}
-                <div className="flex items-center gap-2">
-                  <span className="text-violet-400">❯</span>
-                  <span className="terminal-cursor" />
-                </div>
-              </div>
+            <p>
+              I'm <span className="text-paper italic-serif text-xl">Sanidhya Shishodia</span>. I build autonomous AI
+              agents that make real decisions, move real money, and operate without hand-holding.
+              A DeFi agent trading live on Base. An OSINT platform watching world events in real time.
+              A multi-agent financial war room running in production.
+            </p>
+            <p>
+              Early <span className="text-paper">Claude Agent SDK + MCP</span> adopter: not chatbots, not
+              prompt-glue — LLMs wired in as decision-making cores inside real systems. Currently
+              interning at Lit Amor and co-authoring research on market sentiment AI.
+            </p>
+
+            <div className="pt-4 space-y-3">
+              {PRINCIPLES.map((p, i) => (
+                <motion.div
+                  key={p.k}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 + i * 0.08 }}
+                  className="flex items-baseline gap-4 group"
+                >
+                  <span className="font-mono text-[11px] text-paper-400 tracking-widest">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="italic-serif text-paper text-xl md:text-2xl leading-snug">{p.k}</span>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
-          {/* Text content */}
+          {/* Right: stats column */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.65, ease: 'easeOut' }}
-            className="space-y-6"
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="md:col-span-5 md:pl-8 md:border-l md:border-paper/[0.08]"
           >
-            <div className="space-y-4 text-slate-400 leading-relaxed">
-              <p>
-                I'm <span className="text-white font-semibold">Sanidhya Shishodia</span>. I build autonomous AI agents
-                that make real decisions, move real money, and operate without hand-holding. I've shipped
-                20+ projects across 20+ hackathons: a DeFi agent trading live on Base, an OSINT platform
-                watching global events in real time, and a multi-agent financial war room deployed in production.
-              </p>
-              <p>
-                Early <span className="text-violet-300 font-medium">Claude Agent SDK + MCP adopter</span>: not just
-                using LLMs as chatbots, but wiring them as decision-making cores inside production systems.
-                Currently interning at Lit Amor and co-authoring research on market sentiment AI.
-              </p>
-              <p>
-                My rule: <span className="text-cyan-300 italic">"If it can be autonomous, make it autonomous."</span>
-              </p>
+            <div className="space-y-2">
+              <span className="label-mono">Track Record</span>
+              <div className="hairline mt-2 mb-6 max-w-[180px]" />
             </div>
 
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-3 pt-2">
-              {STATS.map(({ value, label, color }) => (
-                <div
-                  key={label}
-                  className={`rounded-xl border p-4 ${STAT_COLORS[color]} transition-all duration-300 hover:-translate-y-1`}
+            <div className="space-y-7">
+              {STATS.map((s, i) => (
+                <motion.div
+                  key={s.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.15 + i * 0.1 }}
+                  className="flex items-baseline justify-between border-b border-paper/[0.06] pb-4 group"
                 >
-                  <div className="font-mono text-2xl font-bold mb-1 tabular-nums tracking-tight">{value}</div>
-                  <div className="font-mono text-[10px] text-slate-500 tracking-wider uppercase leading-snug">{label}</div>
-                  <div className="w-full h-px mt-2.5 bg-gradient-to-r from-transparent via-current to-transparent opacity-15" />
-                </div>
+                  <span className="font-display text-5xl md:text-6xl text-paper leading-none tracking-tightest group-hover:text-ember transition-colors duration-500">
+                    {s.value}
+                  </span>
+                  <span className="label-mono text-right max-w-[140px]">{s.label}</span>
+                </motion.div>
               ))}
             </div>
 
-            {/* Location tag */}
-            <div className="flex items-center gap-2 text-sm text-slate-500">
-              <span className="text-base">📍</span>
-              <span>New Delhi, India</span>
-              <span className="text-slate-700">·</span>
-              <span className="text-emerald-400 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-dot" />
-                Available now
+            <div className="mt-8 flex items-center gap-3 text-sm text-paper-300">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inset-0 rounded-full bg-ember animate-ping opacity-60" />
+                <span className="relative rounded-full bg-ember h-1.5 w-1.5" />
               </span>
+              <span>Available · New Delhi, IN</span>
             </div>
           </motion.div>
         </div>
