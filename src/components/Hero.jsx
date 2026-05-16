@@ -91,7 +91,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={2}
-            className="font-display italic text-[18vw] md:text-[14vw] leading-[0.86] tracking-tightest text-outline-ember select-none pl-[6vw]"
+            className="font-display italic text-[18vw] md:text-[14vw] leading-[0.86] tracking-tightest text-paper-300 select-none pl-[6vw]"
           >
             Shishodia<span className="text-ember not-italic">.</span>
           </motion.h1>

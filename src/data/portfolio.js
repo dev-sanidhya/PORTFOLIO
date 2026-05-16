@@ -78,6 +78,7 @@ export const projects = [
     gradient: 'from-violet-600 via-purple-700 to-indigo-700',
     accentColor: 'violet',
     badge: 'Agentic AI',
+    visualKind: 'agents-orbit',
   },
   {
     name: 'Axiom',
@@ -94,6 +95,7 @@ export const projects = [
     gradient: 'from-amber-600 via-orange-600 to-red-600',
     accentColor: 'amber',
     badge: 'Open Source, Live',
+    visualKind: 'code-stack',
   },
   {
     name: 'FinSight',
@@ -110,6 +112,7 @@ export const projects = [
     gradient: 'from-emerald-600 via-teal-600 to-cyan-600',
     accentColor: 'emerald',
     badge: 'Live',
+    visualKind: 'chart-multi',
   },
   {
     name: 'DegenAI',
@@ -126,6 +129,7 @@ export const projects = [
     gradient: 'from-rose-600 via-pink-600 to-fuchsia-700',
     accentColor: 'rose',
     badge: 'Agentic AI',
+    visualKind: 'candles',
   },
   {
     name: 'MEDUSA',
@@ -138,10 +142,11 @@ export const projects = [
       'Profile persistence via anonymous cookie-based Postgres sessions; eval layer for prompt quality with adaptive refinement',
     ],
     github: 'https://github.com/dev-sanidhya',
-    demo: null,
+    demo: 'https://medusa-e3qv.onrender.com/',
     gradient: 'from-pink-600 via-rose-500 to-fuchsia-600',
     accentColor: 'pink',
-    badge: 'Agentic AI',
+    badge: 'Live · Agentic AI',
+    visualKind: 'face-mesh',
   },
   {
     name: 'PolicyLens',
@@ -158,6 +163,7 @@ export const projects = [
     gradient: 'from-indigo-600 via-blue-600 to-sky-500',
     accentColor: 'indigo',
     badge: 'RAG / AI',
+    visualKind: 'doc-stack',
   },
   {
     name: 'Scripta',
@@ -174,6 +180,7 @@ export const projects = [
     gradient: 'from-slate-600 via-gray-600 to-zinc-500',
     accentColor: 'slate',
     badge: 'ML / NLP',
+    visualKind: 'handwriting',
   },
   {
     name: 'NOESIS',
@@ -190,6 +197,7 @@ export const projects = [
     gradient: 'from-cyan-600 via-sky-600 to-blue-600',
     accentColor: 'cyan',
     badge: 'Multi-Agent',
+    visualKind: 'globe-pulse',
   },
 ];
 

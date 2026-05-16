@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FiGithub, FiArrowUpRight } from 'react-icons/fi';
 import { projects } from '../data/portfolio';
 import SectionHeading from './SectionHeading';
+import ProjectVisual from './ProjectVisual';
 
 // Per-accent gradient mesh used on each project card.
 const MESH_GRADIENTS = {
@@ -80,8 +81,21 @@ function ProjectCard({ project, index }) {
             backgroundSize: '40px 40px',
           }}
         />
+        {/* Project-specific abstract visual */}
+        {project.visualKind && (
+          <div className="absolute inset-0 flex items-start justify-center p-4 md:p-6 pt-6 md:pt-8 pb-24 md:pb-32 pointer-events-none">
+            <div className="w-full h-full max-w-[90%] opacity-90">
+              <ProjectVisual kind={project.visualKind} />
+            </div>
+          </div>
+        )}
+        {/* Dark gradient overlay at bottom for name readability */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
+          style={{ background: 'linear-gradient(to top, rgba(10,10,11,0.85), transparent)' }}
+        />
         {/* Floating name */}
-        <div className="absolute inset-0 flex items-end p-6 md:p-10">
+        <div className="absolute inset-x-0 bottom-0 flex items-end p-6 md:p-8">
           <div>
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-paper-400">
               proj · {String(index + 1).padStart(2, '0')}
