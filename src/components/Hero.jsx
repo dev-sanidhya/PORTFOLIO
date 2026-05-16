@@ -1,8 +1,11 @@
+import { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { FiGithub, FiLinkedin, FiArrowDown, FiArrowUpRight, FiMail } from 'react-icons/fi';
 import { FaXTwitter } from 'react-icons/fa6';
 import { SiLeetcode } from 'react-icons/si';
+
+const WebGLScene = lazy(() => import('./webgl/WebGLScene'));
 
 const SOCIALS = [
   { icon: FiGithub, href: 'https://github.com/dev-sanidhya', label: 'GitHub' },
@@ -38,8 +41,13 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen w-full flex flex-col justify-end overflow-hidden"
     >
+      {/* WebGL ambient field — only behind the hero, not the whole page */}
+      <Suspense fallback={null}>
+        <WebGLScene />
+      </Suspense>
+
       {/* Faint baseline grid - editorial touch */}
-      <div className="absolute inset-0 grid-bg opacity-[0.5] pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-[0.3] pointer-events-none" style={{ zIndex: 1 }} />
 
       {/* Top meta strip */}
       <motion.div
@@ -59,7 +67,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Main content */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 md:px-12 pt-32 pb-16 md:pb-24">
+      <div className="relative max-w-7xl w-full mx-auto px-6 md:px-12 pt-32 pb-16 md:pb-24" style={{ zIndex: 2 }}>
         {/* Eyebrow */}
         <motion.div
           variants={fadeUp}
@@ -91,7 +99,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={2}
-            className="font-display italic text-[18vw] md:text-[14vw] leading-[0.86] tracking-tightest text-outline-ember select-none pl-[6vw]"
+            className="font-display italic text-[18vw] md:text-[14vw] leading-[0.86] tracking-tightest text-paper-300 select-none pl-[6vw]"
           >
             Shishodia<span className="text-ember not-italic">.</span>
           </motion.h1>
