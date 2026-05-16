@@ -1,15 +1,16 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiExternalLink } from 'react-icons/fi';
+import { FiGithub, FiArrowUpRight } from 'react-icons/fi';
 import { projects } from '../data/portfolio';
 import SectionHeading from './SectionHeading';
 
-const BADGE_STYLES = {
-  violet: 'border-violet-500/30 text-violet-400/90 bg-violet-500/[0.07]',
-  amber:  'border-amber-500/30  text-amber-400/90  bg-amber-500/[0.07]',
-  emerald:'border-emerald-500/30 text-emerald-400/90 bg-emerald-500/[0.07]',
-  rose:   'border-rose-500/30   text-rose-400/90   bg-rose-500/[0.07]',
-  cyan:   'border-cyan-500/30   text-cyan-400/90   bg-cyan-500/[0.07]',
+// Per-accent gradient mesh used on each project card.
+const MESH_GRADIENTS = {
+  violet: 'radial-gradient(circle at 30% 20%, #6a4dff44, transparent 60%), radial-gradient(circle at 80% 70%, #ff5b1f33, transparent 65%)',
+  amber:  'radial-gradient(circle at 30% 20%, #ff8e3c44, transparent 60%), radial-gradient(circle at 80% 70%, #ff5b1f33, transparent 65%)',
+  emerald:'radial-gradient(circle at 30% 20%, #4dd3a533, transparent 60%), radial-gradient(circle at 80% 70%, #ff5b1f33, transparent 65%)',
+  rose:   'radial-gradient(circle at 30% 20%, #ff5b8044, transparent 60%), radial-gradient(circle at 80% 70%, #ff5b1f33, transparent 65%)',
+  cyan:   'radial-gradient(circle at 30% 20%, #2cc6e833, transparent 60%), radial-gradient(circle at 80% 70%, #ff5b1f33, transparent 65%)',
 };
 
 function ProjectCard({ project, index }) {
@@ -19,188 +20,174 @@ function ProjectCard({ project, index }) {
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const cx = rect.width / 2;
-    const cy = rect.height / 2;
-    const rotateX = ((y - cy) / cy) * -7;
-    const rotateY = ((x - cx) / cx) * 7;
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    card.style.setProperty('--mx', `${(x * 50 + 50).toFixed(1)}%`);
+    card.style.setProperty('--my', `${(y * 50 + 50).toFixed(1)}%`);
+    card.style.transform = `perspective(1400px) rotateX(${(-y * 2.4).toFixed(2)}deg) rotateY(${(x * 2.4).toFixed(2)}deg)`;
   };
 
   const handleMouseLeave = () => {
     if (cardRef.current) {
-      cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+      cardRef.current.style.transform = 'perspective(1400px) rotateX(0) rotateY(0)';
     }
   };
 
+  const isLeft = index % 2 === 0;
+  const mesh = MESH_GRADIENTS[project.accentColor] ?? MESH_GRADIENTS.violet;
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
+    <motion.article
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, delay: index * 0.15, ease: 'easeOut' }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.9, delay: 0.05 + (index % 2) * 0.06, ease: [0.22, 1, 0.36, 1] }}
+      className={`relative grid md:grid-cols-12 gap-6 md:gap-10 items-center ${
+        isLeft ? '' : 'md:[&>*:first-child]:order-2'
+      }`}
     >
+      {/* Visual / mesh card */}
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="project-card h-full glass-card rounded-2xl overflow-hidden border border-white/[0.07] transition-all duration-200"
-        style={{ transformStyle: 'preserve-3d', transition: 'transform 0.15s ease, box-shadow 0.3s ease' }}
+        data-cursor="hover"
+        className="md:col-span-6 relative aspect-[5/4] rounded-3xl overflow-hidden border border-paper/[0.08] surface-card will-change-transform"
+        style={{ transition: 'transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.4s ease' }}
       >
-        {/* Status header bar */}
-        <div className="px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.015] flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${project.demo && project.demo !== '#' ? 'bg-emerald-400 animate-pulse-dot' : 'bg-violet-400/70'}`} />
-            <span className="font-mono text-[9px] text-slate-600 tracking-[0.15em] uppercase">
-              proj-{String(index + 1).padStart(2, '0')}
+        {/* Animated gradient mesh background */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: mesh,
+            filter: 'saturate(120%)',
+          }}
+        />
+        {/* Soft cursor-following light */}
+        <div
+          className="absolute inset-0 opacity-50"
+          style={{
+            background: 'radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 91, 31, 0.18), transparent 60%)',
+            transition: 'opacity 0.4s ease',
+          }}
+        />
+        {/* Grid */}
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(235,230,220,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(235,230,220,0.05) 1px, transparent 1px)',
+            backgroundSize: '40px 40px',
+          }}
+        />
+        {/* Floating name */}
+        <div className="absolute inset-0 flex items-end p-6 md:p-10">
+          <div>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-paper-400">
+              proj · {String(index + 1).padStart(2, '0')}
+              {project.badge && <span className="ml-3 text-ember">{project.badge}</span>}
             </span>
-            <span className="font-mono text-[9px] text-slate-700">·</span>
-            <span className="font-mono text-[9px] text-slate-500 tracking-wider uppercase">{project.name}</span>
+            <h3 className="font-display text-5xl md:text-7xl text-paper leading-[0.95] tracking-tightest mt-2">
+              {project.name}
+            </h3>
           </div>
-          {project.badge && (
-            <span className={`font-mono text-[8px] tracking-[0.1em] uppercase px-1.5 py-0.5 border rounded-sm ${BADGE_STYLES[project.accentColor] ?? BADGE_STYLES.violet}`}>
-              {project.badge}
+        </div>
+        {/* Corner brackets */}
+        <span className="absolute top-4 left-4 w-3 h-3 border-t border-l border-paper-300/40" />
+        <span className="absolute top-4 right-4 w-3 h-3 border-t border-r border-paper-300/40" />
+        <span className="absolute bottom-4 left-4 w-3 h-3 border-b border-l border-paper-300/40" />
+        <span className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-paper-300/40" />
+      </div>
+
+      {/* Text content */}
+      <div className="md:col-span-6 md:px-4">
+        <p className="italic-serif text-ember text-xl md:text-2xl mb-3">{project.tagline}</p>
+        <ul className="space-y-3 text-paper-200 text-base leading-relaxed mb-6 max-w-xl">
+          {project.description.map((d, i) => (
+            <li key={i} className="flex gap-3">
+              <span className="text-paper-400 shrink-0 mt-2 text-[6px]">●</span>
+              <span>{d}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex flex-wrap gap-1.5 mb-6">
+          {project.tech.map((t) => (
+            <span
+              key={t}
+              className="font-mono text-[11px] px-2.5 py-1 rounded-full border border-paper/[0.10] text-paper-300"
+            >
+              {t}
             </span>
-          )}
+          ))}
         </div>
 
-        <div className="p-7">
-          {/* Project name + external links */}
-          <div className="flex items-start justify-between mb-3">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <h3 className="text-2xl font-black gradient-text">{project.name}</h3>
-                {project.badge && (
-                  <span className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-white/[0.07] border border-white/10 text-slate-400">
-                    {project.badge}
-                  </span>
-                )}
-              </div>
-              <p className="text-slate-400 text-sm">{project.tagline}</p>
-            </div>
-            <div className="flex items-center gap-2 ml-4 shrink-0">
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="p-2 rounded-lg text-slate-500 hover:text-white hover:bg-white/10 transition-all duration-200"
-                >
-                  <FiGithub size={18} />
-                </a>
-              )}
-              {project.demo && project.demo !== '#' && (
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Live Demo"
-                  className="p-2 rounded-lg text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/10 transition-all duration-200"
-                >
-                  <FiExternalLink size={18} />
-                </a>
-              )}
-            </div>
-          </div>
-
-          {/* Tech tags */}
-          <div className="flex flex-wrap gap-1.5 mb-5">
-            {project.tech.map((t) => (
-              <span
-                key={t}
-                className="text-xs px-2.5 py-1 rounded-full bg-white/[0.05] border border-white/[0.08] text-slate-400 font-mono"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-
-          {/* Divider */}
-          <div className="h-px bg-white/[0.06] mb-5" />
-
-          {/* Description bullets */}
-          <ul className="space-y-2.5">
-            {project.description.map((d, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-sm text-slate-400 leading-relaxed">
-                <span className="text-cyan-500 shrink-0 mt-0.5">▸</span>
-                {d}
-              </li>
-            ))}
-          </ul>
-
-          {/* Footer */}
-          <div className="mt-6 flex items-center gap-3">
+        <div className="flex items-center gap-4">
+          {project.github && (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white px-3 py-1.5 rounded-lg border border-white/[0.08] hover:border-white/20 bg-white/[0.03] hover:bg-white/[0.07] transition-all duration-200"
+              className="inline-flex items-center gap-2 text-paper hover:text-ember transition-colors duration-300 group"
             >
-              <FiGithub size={13} />
-              View Code
+              <FiGithub size={16} />
+              <span className="link-underline text-sm">Code</span>
             </a>
-            {project.demo && project.demo !== '#' ? (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 px-3 py-1.5 rounded-lg border border-emerald-500/25 hover:border-emerald-500/50 bg-emerald-500/5 hover:bg-emerald-500/10 transition-all duration-200"
-              >
-                <FiExternalLink size={13} />
-                Live Demo
-              </a>
-            ) : (
-              <span className="text-xs text-slate-600 px-3 py-1.5 rounded-lg border border-white/[0.04] bg-white/[0.02]">
-                Coming Soon
-              </span>
-            )}
-          </div>
+          )}
+          {project.demo && project.demo !== '#' && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-paper hover:text-ember transition-colors duration-300 group"
+            >
+              <FiArrowUpRight size={16} />
+              <span className="link-underline text-sm">Live demo</span>
+            </a>
+          )}
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Dot grid */}
-      <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
-
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-96 rounded-full opacity-[0.03] blur-[120px] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, #8b5cf6 0%, #06b6d4 50%, transparent 70%)' }} />
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+    <section id="projects" className="py-32 md:py-44 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionHeading
-          tag="04 · Projects"
-          title="What I've Built"
-          subtitle="AI-powered full-stack systems: autonomous agents, multi-agent war rooms, real-time OSINT, and open-source agent infrastructure."
+          tag="04 · Work"
+          kicker="04 / Projects"
+          title={
+            <>
+              Things I've <span className="italic-serif text-ember">put into the world</span>.
+            </>
+          }
+          subtitle="Autonomous agents, multi-agent war rooms, real-time OSINT, open-source infra."
         />
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="space-y-28 md:space-y-36">
           {projects.map((project, i) => (
             <ProjectCard key={project.name} project={project} index={i} />
           ))}
         </div>
 
-        {/* View more on GitHub */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.7 }}
+          className="text-center mt-24"
         >
           <a
             href="https://github.com/dev-sanidhya"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/[0.03] text-slate-400 hover:text-white hover:border-white/20 hover:bg-white/[0.07] text-sm transition-all duration-300 group"
+            className="btn-ghost"
           >
-            <FiGithub size={16} className="group-hover:text-violet-400 transition-colors duration-200" />
-            View more on GitHub
+            <FiGithub size={15} />
+            All work on GitHub
+            <FiArrowUpRight size={15} />
           </a>
         </motion.div>
       </div>
