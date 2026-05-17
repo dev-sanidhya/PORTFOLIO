@@ -183,6 +183,23 @@ export const projects = [
     visualKind: 'handwriting',
   },
   {
+    name: 'Nexus',
+    tagline: 'Production Multi-Agent Orchestration Platform',
+    tech: ['Claude Agent SDK', 'TypeScript', 'MCP Protocol', 'Circle Wallets', 'Solidity', 'x402', 'Base Network'],
+    description: [
+      'CEO agent + task router + decision engine architecture: three-tier multi-agent coordination at infrastructure scale, zero human approval gates in the critical path',
+      'Custom MCP servers expose internal business tooling directly to Claude; agents route tasks, delegate decisions, and resolve cross-agent conflicts autonomously',
+      'Circle developer-controlled wallets + Solidity smart contracts wired into the agent layer; x402 micropayments gate paid tool access with per-call granularity',
+      'Token reached $48M peak market cap on-chain; autonomous agents managing real financial flows with full on-chain auditability',
+    ],
+    github: 'https://github.com/dev-sanidhya',
+    demo: null,
+    gradient: 'from-violet-600 via-indigo-600 to-purple-700',
+    accentColor: 'violet',
+    badge: 'Agentic AI · Web3',
+    visualKind: 'agent-nexus',
+  },
+  {
     name: 'NOESIS',
     tagline: 'Real-time Global Civil Unrest Intelligence',
     tech: ['FastAPI', 'React', 'spaCy', 'NLP', 'Google Places API', 'Telegram API', 'ML'],

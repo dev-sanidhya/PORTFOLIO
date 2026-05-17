@@ -524,6 +524,103 @@ function GlobePulse() {
   );
 }
 
+/* ---------- 9. Nexus — multi-agent hierarchy with directed task flow ---------- */
+function AgentNexus() {
+  const nodes = [
+    { id: 'ceo', label: 'CEO AGENT', x: 120, y: 42, r: 10, primary: true },
+    { id: 'router', label: 'TASK ROUTER', x: 120, y: 96, r: 7, primary: false },
+    { id: 'a1', label: 'EXEC', x: 50, y: 148, r: 5, primary: false },
+    { id: 'a2', label: 'TRADE', x: 90, y: 152, r: 5, primary: false },
+    { id: 'a3', label: 'CHAIN', x: 130, y: 152, r: 5, primary: false },
+    { id: 'a4', label: 'AUDIT', x: 170, y: 148, r: 5, primary: false },
+  ];
+  const edges = [
+    { x1: 120, y1: 52, x2: 120, y2: 89 },
+    { x1: 120, y1: 103, x2: 50, y2: 143 },
+    { x1: 120, y1: 103, x2: 90, y2: 147 },
+    { x1: 120, y1: 103, x2: 130, y2: 147 },
+    { x1: 120, y1: 103, x2: 170, y2: 143 },
+  ];
+  return (
+    <svg viewBox="0 0 240 200" className="w-full h-full">
+      <defs>
+        <radialGradient id="nexus-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor={EMBER} stopOpacity="0.5" />
+          <stop offset="100%" stopColor={EMBER} stopOpacity="0" />
+        </radialGradient>
+        <marker id="arrowhead" markerWidth="4" markerHeight="4" refX="2" refY="2" orient="auto">
+          <polygon points="0 0, 4 2, 0 4" fill={PAPER_DIM} fillOpacity="0.7" />
+        </marker>
+      </defs>
+      <text x="14" y="18" fill={PAPER_DIM} fontSize="7" fontFamily="'JetBrains Mono', monospace" letterSpacing="0.15em">
+        MCP · CLAUDE · x402
+      </text>
+      <text x="226" y="18" fill={EMBER} fontSize="7" fontFamily="'JetBrains Mono', monospace" textAnchor="end" fontWeight="600" letterSpacing="0.1em">
+        $48M MC
+      </text>
+      {/* Edges */}
+      {edges.map((e, i) => (
+        <motion.line
+          key={i}
+          x1={e.x1} y1={e.y1} x2={e.x2} y2={e.y2}
+          stroke={PAPER_DIM} strokeWidth="0.7"
+          markerEnd="url(#arrowhead)"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: [0.2, 0.6, 0.2] }}
+          transition={{ duration: 1.8, delay: 0.3 + i * 0.15, repeat: Infinity, repeatDelay: 0.8 }}
+        />
+      ))}
+      {/* Pulse from CEO downward */}
+      <motion.circle
+        cx="120" cy="52" r="3"
+        fill={EMBER} fillOpacity="0.8"
+        animate={{ cy: [52, 89, 52], opacity: [0.9, 0.3, 0.9] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      {/* Nodes */}
+      {nodes.map((n, i) => (
+        <g key={n.id}>
+          {n.primary && (
+            <circle cx={n.x} cy={n.y} r={n.r + 14} fill="url(#nexus-glow)" />
+          )}
+          <motion.circle
+            cx={n.x} cy={n.y} r={n.r}
+            fill={n.primary ? EMBER : PAPER}
+            fillOpacity={n.primary ? 0.9 : 0.12}
+            stroke={n.primary ? EMBER : PAPER_DIM}
+            strokeWidth={n.primary ? 0 : 0.8}
+            animate={n.primary ? { scale: [1, 1.12, 1] } : { opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 2, delay: i * 0.2, repeat: Infinity }}
+            style={{ transformOrigin: `${n.x}px ${n.y}px` }}
+          />
+          <text
+            x={n.x} y={n.y + n.r + 10}
+            fill={n.primary ? EMBER : PAPER_DIM}
+            fontSize="6"
+            textAnchor="middle"
+            fontFamily="'JetBrains Mono', monospace"
+            letterSpacing="0.12em"
+          >
+            {n.label}
+          </text>
+        </g>
+      ))}
+      {/* x402 micropayment rail */}
+      <g transform="translate(14, 175)">
+        <rect width="212" height="13" rx="2" fill={PAPER} fillOpacity="0.05" />
+        <motion.circle
+          cx="8" cy="6.5" r="2.5" fill={EMBER}
+          animate={{ opacity: [1, 0.3, 1] }}
+          transition={{ duration: 1.1, repeat: Infinity }}
+        />
+        <text x="16" y="10" fill={PAPER} fontSize="6.5" fontFamily="'JetBrains Mono', monospace" letterSpacing="0.1em">
+          x402 · CIRCLE WALLETS · BASE NETWORK
+        </text>
+      </g>
+    </svg>
+  );
+}
+
 /* ---------- exported switch ---------- */
 export default function ProjectVisual({ kind }) {
   switch (kind) {
@@ -535,6 +632,7 @@ export default function ProjectVisual({ kind }) {
     case 'doc-stack': return <DocStack />;
     case 'handwriting': return <Handwriting />;
     case 'globe-pulse': return <GlobePulse />;
+    case 'agent-nexus': return <AgentNexus />;
     default: return null;
   }
 }

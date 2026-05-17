@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import SectionHeading from './SectionHeading';
 
 const STATS = [
-  { value: '20+', label: 'Hackathons shipped' },
+  { value: '50+', label: 'Hackathons shipped' },
   { value: '04', label: 'National wins' },
-  { value: '10+', label: 'AI agents built' },
-  { value: '03', label: 'Prod systems live' },
+  { value: '20+', label: 'AI agents built' },
+  { value: '11', label: 'Prod systems live' },
 ];
 
 const PRINCIPLES = [

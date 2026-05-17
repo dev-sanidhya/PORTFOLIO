@@ -34,7 +34,7 @@ export default function Achievements() {
           {[
             { value: '04', label: 'Hackathons won' },
             { value: '20+', label: 'Hackathons shipped' },
-            { value: '3K+', label: 'Competitors beaten' },
+            { value: '20K+', label: 'Competitors beaten' },
           ].map(({ value, label }) => (
             <div key={label} className="flex flex-col items-center text-center">
               <span className="font-display text-6xl md:text-8xl text-paper leading-none tracking-tightest">
