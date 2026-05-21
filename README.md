@@ -43,7 +43,6 @@ src/
     Projects.jsx      - Project cards with gradient accents
     Achievements.jsx  - Hackathon wins and placements
     Contact.jsx       - Contact section
-    BuyMeCoffee.jsx   - Floating support button
     Navbar.jsx        - Fixed navigation bar
     Footer.jsx        - Footer
     SectionHeading.jsx - Shared heading component
