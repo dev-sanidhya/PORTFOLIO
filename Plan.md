@@ -27,6 +27,7 @@ Editorial premium aesthetic. Inspired by Linear/Vercel restraint mixed with abst
 - `tailwind.config.js` - extended palette + keyframes
 
 ## Decisions Made
+- Removed BuyMeCoffee floating button (cleaner UX, no third-party support widget)
 - No three.js / WebGL shaders (kept dependencies lean - just Canvas2D)
 - Custom cursor only on >768px viewports
 - Reduced motion handled via media query
