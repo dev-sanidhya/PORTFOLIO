@@ -6,7 +6,6 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
-import BuyMeCoffee from './components/BuyMeCoffee';
 import Footer from './components/Footer';
 import BackgroundField from './components/BackgroundField';
 import Cursor from './components/Cursor';
@@ -30,7 +29,6 @@ export default function App() {
           <Contact />
         </main>
 
-        <BuyMeCoffee />
         <Footer />
       </div>
     </div>
