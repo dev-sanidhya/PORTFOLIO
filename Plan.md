@@ -27,7 +27,7 @@ Editorial premium aesthetic. Inspired by Linear/Vercel restraint mixed with abst
 - `tailwind.config.js` - extended palette + keyframes
 
 ## Decisions Made
-- Added Whinta Node.js Developer Intern role (May 2026 - Present) to experience timeline, placed first as most recent; updated About section to reference Whinta instead of Lit Amor as current internship
+- Corrected Whinta to a past internship (June-July 2026, 2 months, not ongoing); added Swift Robotics AI/Software Intern role (July 2026 - Present, early-stage/light detail) as the current top entry; About section now references Swift Robotics + GSoC as current instead of Whinta
 - Removed BuyMeCoffee floating button (cleaner UX, no third-party support widget)
 - No three.js / WebGL shaders (kept dependencies lean - just Canvas2D)
 - Custom cursor only on >768px viewports

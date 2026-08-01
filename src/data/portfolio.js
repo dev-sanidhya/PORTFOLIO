@@ -23,10 +23,23 @@ export const skills = [
 
 export const experience = [
   {
+    role: 'AI/Software Intern',
+    company: 'Swift Robotics',
+    location: 'Remote',
+    duration: 'July 2026 – Present',
+    tag: 'Internship',
+    tagColor: 'rose',
+    bullets: [
+      'Joined an early-stage team building an AI-powered patient-care companion device: a Jetson-based bedside assistant with a camera, mic array, and pico-projector visor',
+      'Building an audio distress-sound classifier (moan, scream, cough) as the audio sibling to the existing vision-based fall detector, using an EfficientAT/MobileNetV3 backbone pretrained on AudioSet',
+      'Diagnosed and fixed four structural training defects (pretrained-checkpoint feature mismatch, mislabeled data, imbalanced class weights, clip-length padding), lifting test accuracy from 76% to 94% and macro F1 from 0.66 to 0.89',
+    ],
+  },
+  {
     role: 'Node.js Developer Intern',
     company: 'Whinta',
     location: 'Remote, Rohini, Delhi',
-    duration: 'May 2026 – Present',
+    duration: 'June 2026 – July 2026',
     tag: 'Internship',
     tagColor: 'emerald',
     bullets: [
