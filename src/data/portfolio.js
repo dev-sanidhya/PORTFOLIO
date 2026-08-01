@@ -47,7 +47,7 @@ export const experience = [
       'Built Vani, an AI voice agent handling inbound and outbound calls via public IVR audio URLs, and shipped AI-driven WhatsApp replies supporting text, image, and audio messages',
       'Architected a standalone Appointment Scheduler microservice with Google Meet/Zoom OAuth, an external-facing embeddable booking widget, and double-booking prevention logic',
       'Built a multi-channel reminder system (email + WhatsApp) with configurable time offsets and custom per-channel messaging ahead of appointments',
-      'Shipped 3 public-facing tools — whinta.com/changelog, a WhatsApp link generator, and a WhatsApp chat button widget generator — plus an internal Activity page surfacing alerts, error reports, and reminders',
+      'Shipped 3 public-facing tools - whinta.com/changelog, a WhatsApp link generator, and a WhatsApp chat button widget generator - plus an internal Activity page surfacing alerts, error reports, and reminders',
       'Ran production operations: debugging Docker-deployed services via server logs, setting up status.whinta.com, and managing a handed-over VPS',
     ],
   },

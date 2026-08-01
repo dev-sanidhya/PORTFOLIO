@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 /**
  * Project-specific abstract SVG visuals.
- * All paper-toned with ember accents — sits on top of the per-project gradient mesh.
+ * All paper-toned with ember accents - sits on top of the per-project gradient mesh.
  * Each `kind` returns a distinct, on-brand piece tied to what the project actually does.
  */
 
@@ -10,7 +10,7 @@ const PAPER = 'rgba(235, 230, 220, 0.85)';
 const PAPER_DIM = 'rgba(235, 230, 220, 0.35)';
 const EMBER = '#ff5b1f';
 
-/* ---------- 1. CoFound — 6 advisors orbiting around a center ---------- */
+/* ---------- 1. CoFound - 6 advisors orbiting around a center ---------- */
 function AgentsOrbit() {
   const advisors = [
     { label: 'Market', a: 0 },
@@ -78,7 +78,7 @@ function AgentsOrbit() {
   );
 }
 
-/* ---------- 2. Axiom — stacked module/code blocks ---------- */
+/* ---------- 2. Axiom - stacked module/code blocks ---------- */
 function CodeStack() {
   const lines = [
     { w: 70, label: 'research-agent' },
@@ -130,7 +130,7 @@ function CodeStack() {
   );
 }
 
-/* ---------- 3. FinSight — multi-line market sentiment chart ---------- */
+/* ---------- 3. FinSight - multi-line market sentiment chart ---------- */
 function ChartMulti() {
   // Pseudo-deterministic line points
   const series = [
@@ -198,7 +198,7 @@ function ChartMulti() {
   );
 }
 
-/* ---------- 4. DegenAI — candlestick fragments ---------- */
+/* ---------- 4. DegenAI - candlestick fragments ---------- */
 function Candles() {
   // Deterministic candle data: [openY, closeY, highY, lowY, bullish]
   const candles = [
@@ -256,7 +256,7 @@ function Candles() {
   );
 }
 
-/* ---------- 5. MEDUSA — face landmark mesh ---------- */
+/* ---------- 5. MEDUSA - face landmark mesh ---------- */
 function FaceMesh() {
   // 478 MediaPipe-ish landmarks simplified to ~60 representative points around a face oval
   const points = [];
@@ -322,7 +322,7 @@ function FaceMesh() {
   );
 }
 
-/* ---------- 6. PolicyLens — document stack with embedding lines ---------- */
+/* ---------- 6. PolicyLens - document stack with embedding lines ---------- */
 function DocStack() {
   return (
     <svg viewBox="0 0 240 200" className="w-full h-full">
@@ -396,7 +396,7 @@ function DocStack() {
   );
 }
 
-/* ---------- 7. Scripta — handwritten stroke ---------- */
+/* ---------- 7. Scripta - handwritten stroke ---------- */
 function Handwriting() {
   // SVG paths approximating handwritten cursive strokes
   return (
@@ -455,7 +455,7 @@ function Handwriting() {
   );
 }
 
-/* ---------- 8. NOESIS — world with pulsing signals ---------- */
+/* ---------- 8. NOESIS - world with pulsing signals ---------- */
 function GlobePulse() {
   // Simple lat/lng dotted map
   const dots = [];
@@ -524,7 +524,7 @@ function GlobePulse() {
   );
 }
 
-/* ---------- 9. Nexus — multi-agent hierarchy with directed task flow ---------- */
+/* ---------- 9. Nexus - multi-agent hierarchy with directed task flow ---------- */
 function AgentNexus() {
   const nodes = [
     { id: 'ceo', label: 'CEO AGENT', x: 120, y: 42, r: 10, primary: true },

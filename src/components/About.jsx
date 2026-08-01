@@ -47,7 +47,7 @@ export default function About() {
             </p>
             <p>
               Early <span className="text-paper">Claude Agent SDK + MCP</span> adopter: not chatbots, not
-              prompt-glue — LLMs wired in as decision-making cores inside real systems. Currently
+              prompt-glue - LLMs wired in as decision-making cores inside real systems. Currently
               interning at Swift Robotics on an AI patient-care device, mentoring for GSoC at OWASP, and
               co-authoring research on market sentiment AI.
             </p>
