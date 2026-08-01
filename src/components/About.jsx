@@ -48,7 +48,7 @@ export default function About() {
             <p>
               Early <span className="text-paper">Claude Agent SDK + MCP</span> adopter: not chatbots, not
               prompt-glue — LLMs wired in as decision-making cores inside real systems. Currently
-              interning at Lit Amor and co-authoring research on market sentiment AI.
+              interning at Whinta as a Node.js developer and co-authoring research on market sentiment AI.
             </p>
 
             <div className="pt-4 space-y-3">
